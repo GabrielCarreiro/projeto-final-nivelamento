@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final</title>
+</head>
+
+<body>
+    <script>
+
+
+        var numeros = [];
+
+        var valor = parseInt(prompt('Digite um numero'))
+        numeros.push(valor);
+
+        var valor = parseInt(prompt('Digite um segundo numero'))
+        numeros.push(valor);
+
+        var valor = parseInt(prompt('Digite um terceiro numero'))
+        numeros.push(valor);
+
+        var valor = parseInt(prompt('Digite um quarto numero'))
+        numeros.push(valor);
+
+        var valor = parseInt(prompt('Digite um quinto numero'))
+        numeros.push(valor);
+
+
+        var maior = numeros.reduce(function (a, b) {
+            return Math.max(a, b);
+        });
+
+        var menor = numeros.reduce(function (a, b) {
+            return Math.min(a, b);
+
+        });
+
+        document.write(' O maior numero que você digitou foi ' + maior + '<br>')
+        document.write(' O menor numero que você digitou foi ' + menor + '<br> <br>')
+
+
+
+        for (numero of numeros) {
+            if (numero % 2 == 0) {
+                document.write(`O numero ${numero} é par <br>`)
+            } else {
+                document.write(`O numero ${numero} é impar <br>`)
+            }
+        }
+
+
+    </script>
+</body>
+</html>
