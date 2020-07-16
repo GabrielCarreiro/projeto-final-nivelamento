@@ -5,51 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Final</title>
 </head>
-
 <body>
     <script>
+        /*O usúario precisa digitar 5 numeros e deve ser retornado os seguintes condições =>
+            Problema 1 => Pagar os dados do usúario.
+            Problema 2 => Mostra qual é o maior numero é qual é menor numeros digitados.
+            Problema 3 => Mostra quais são numeros impares e pares.
+            Problema 4 => Mostra se tem numeros repetidos e quantas vezes esse numero se repete. */
 
 
-        var numeros = [];
+        // Bloco das declarações das variaveis 
+        var numero1 = parseInt(prompt('Digite um numero'));
 
-        var valor = parseInt(prompt('Digite um numero'))
-        numeros.push(valor);
+        var numero2 = parseInt(prompt('Digite um segundo numero'));
 
-        var valor = parseInt(prompt('Digite um segundo numero'))
-        numeros.push(valor);
+        var numero3 = parseInt(prompt('Digite um terceiro numero'));
 
-        var valor = parseInt(prompt('Digite um terceiro numero'))
-        numeros.push(valor);
+        var numero4 = parseInt(prompt('Digite um quarto numero'));
 
-        var valor = parseInt(prompt('Digite um quarto numero'))
-        numeros.push(valor);
+        var numero5 = parseInt(prompt('Digite um quinto numero'));
 
-        var valor = parseInt(prompt('Digite um quinto numero'))
-        numeros.push(valor);
+        var numeros = [numero1, numero2, numero3, numero4, numero5];
 
 
-        var maior = numeros.reduce(function (a, b) {
-            return Math.max(a, b);
-        });
+        // Função para ver qual é maior e qual é menor
+        function maiorMenor(numero1, numero2, numero3, numero4, numero5) {
 
-        var menor = numeros.reduce(function (a, b) {
-            return Math.min(a, b);
-
-        });
-
-        document.write(' O maior numero que você digitou foi ' + maior + '<br>')
-        document.write(' O menor numero que você digitou foi ' + menor + '<br> <br>')
-
-
-
-        for (numero of numeros) {
-            if (numero % 2 == 0) {
-                document.write(`O numero ${numero} é par <br>`)
-            } else {
-                document.write(`O numero ${numero} é impar <br>`)
-            }
+            maiorNumero = Math.max(numero1, numero2, numero3, numero4, numero5);
+            menorNumero = Math.min(numero1, numero2, numero3, numero4, numero5);
+            document.write(`O maior numero que você digitou foi <strong> ${maiorNumero} </strong>`);
+            document.write(`</br> O menor numero que você digitou foi: <strong> ${menorNumero} </strong><br><br>`);
         }
 
+        maiorMenor(numero1, numero2, numero3, numero4, numero5);
+
+
+        //Função para ver qual numero é par é qual é impar 
+        function imparPar(numeros) {
+            for (numero of numeros) {
+                if (numero % 2 == 0) {
+                    document.write(`O numero ${numero} é par <br>`);
+                } else {
+                    document.write(`O numero ${numero} é impar <br>`);
+                }
+            }
+        }
+        imparPar(numeros);
+
+
+        //Função para verificar se tem numeros repetidos e quantas vezes se repete:
+        function verificarRepetido(numeros) {
+
+            var repetido = 0;
+
+            for (var i = 0; i < 5; i++) {
+
+                for (var a = 0; a < 5; a++) {
+
+                    if (numeros[i] == numeros[a]) {
+                        repetido++;
+                    }
+                }
+                if (!(numeros[i] == numeros[i + 1]) && !(numeros[i] == numeros[i + 2]) && !(numeros[i] == numeros[i + 3]) && !(numeros[i] == numeros[i + 4])) {
+                    document.write(`<br> ${numeros[i]} se repetiu <strong> ${repetido} </strong> vezes<br>`);
+                }
+                repetido = 0;
+            }
+        }
+        verificarRepetido(numeros);
 
     </script>
 </body>
